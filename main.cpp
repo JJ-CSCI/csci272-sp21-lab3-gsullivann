@@ -6,8 +6,27 @@
 
 // Put the assignment code here
 
-class Quaternion {
+class Quaternion {  
+public:
+  int a, b, c, d;
+  Quaternion (double, double, double, double){}
 };
+
+bool operator == ( const Quaternion& q, const Quaternion& p){
+  if (q == p)
+  return true;
+  else 
+  return false;
+}
+
+Quaternion operator + (const Quaternion& q, const Quaternion&p){
+
+
+}
+
+Quaternion operator - (const Quaternion& q, const Quaternion&p ){}
+
+Quaternion operator * (const Quaternion& q, const double){}
 
 //------------------------------
 //   DO NOT MODIFY TEST CASES
