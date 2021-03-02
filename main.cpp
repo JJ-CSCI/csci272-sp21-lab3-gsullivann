@@ -7,27 +7,43 @@
 // Put the assignment code here
 
 class Quaternion {  
+double p, q, r, s;
 public:
-  int a, b, c, d;
-  Quaternion (double, double, double, double){}
-};
+Quaternion(double p, double q, double r, double s){
+  this->p = p; 
+  this->q = q;
+  this->r = r;
+  this->s = s; 
+  } 
 
-bool operator == ( const Quaternion& q, const Quaternion& p){
-  if (q == p)
+bool operator == (const Quaternion& q){
+  if ((q.p == this->p) && (q.q == this->q) && (q.r == this->r) && (q.s == this->s))
   return true;
   else 
   return false;
 }
 
-Quaternion operator + (const Quaternion& q, const Quaternion&p){
-
+Quaternion operator + (const Quaternion& q){
+  Quaternion r;
 
 }
 
-Quaternion operator - (const Quaternion& q, const Quaternion&p ){}
+Quaternion operator - (const Quaternion& q){
+  Quaternion r;
+}
 
-Quaternion operator * (const Quaternion& q, const double){}
+Quaternion operator * (double q){
+  Quaternion r;
+  r = q * this->p;
+  r = q * this->q;
+  r = q * this->r;
+  r = q * this->s;
 
+
+
+  return r;
+}
+};
 //------------------------------
 //   DO NOT MODIFY TEST CASES
 //------------------------------
