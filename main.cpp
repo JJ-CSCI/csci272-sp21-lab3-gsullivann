@@ -9,6 +9,14 @@
 class Quaternion {  
 double p, q, r, s;
 public:
+
+Quaternion(){
+  p = 0.0;
+  q = 0.0;
+  r = 0.0;
+  s = 0.0;
+}
+
 Quaternion(double p, double q, double r, double s){
   this->p = p; 
   this->q = q;
@@ -17,29 +25,40 @@ Quaternion(double p, double q, double r, double s){
   } 
 
 bool operator == (const Quaternion& q){
-  if ((q.p == this->p) && (q.q == this->q) && (q.r == this->r) && (q.s == this->s))
-  return true;
-  else 
-  return false;
+  if ((q.p == this->p) && (q.q == this->q) && (q.r == this->r) && (q.s == this->s)){
+    return true;
+  }
+  else {
+    return false;
+  }
 }
 
 Quaternion operator + (const Quaternion& q){
   Quaternion r;
+  r.q = q.p + this->p;
+  r.q = q.q + this->q;
+  r.q = q.r + this->r;
+  r.q = q.s + this->s;
 
+  return r;
 }
 
 Quaternion operator - (const Quaternion& q){
   Quaternion r;
+  r.q = q.p - this->p;
+  r.q = q.q - this->q;
+  r.q = q.r - this->r;
+  r.q = q.s - this->s;
+
+  return r;
 }
 
 Quaternion operator * (double q){
   Quaternion r;
-  r = q * this->p;
-  r = q * this->q;
-  r = q * this->r;
-  r = q * this->s;
-
-
+  r.q = q * this->p;
+  r.q = q * this->q;
+  r.q = q * this->r;
+  r.q = q * this->s;
 
   return r;
 }
