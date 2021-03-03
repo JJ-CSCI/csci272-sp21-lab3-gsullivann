@@ -7,61 +7,29 @@
 // Put the assignment code here
 
 class Quaternion {  
-double p, q, r, s;
+  double a, b, c, d;
 public:
-
-Quaternion(){
-  p = 0.0;
-  q = 0.0;
-  r = 0.0;
-  s = 0.0;
-}
-
-Quaternion(double p, double q, double r, double s){
-  this->p = p; 
-  this->q = q;
-  this->r = r;
-  this->s = s; 
-  } 
-
-bool operator == (const Quaternion& q){
-  if ((q.p == this->p) && (q.q == this->q) && (q.r == this->r) && (q.s == this->s)){
-    return true;
+  Quaternion(double w, double x, double y, double z) :
+    a{w}, b{x}, c{y}, d{z} {}
+  
+  bool operator == (const Quaternion &rhs) const {
+    return (a== rhs.a) && (b == rhs.b) && (c == rhs.c) && (d == rhs.d);
   }
-  else {
-    return false;
+
+  Quaternion operator + (const Quaternion &rhs) const {
+    Quaternion res{a+rhs.a, b+rhs.b, c+rhs.c, d+rhs.d};
+  return res;
   }
-}
 
-Quaternion operator + (const Quaternion& q){
-  Quaternion r;
-  r.q = q.p + this->p;
-  r.q = q.q + this->q;
-  r.q = q.r + this->r;
-  r.q = q.s + this->s;
+  Quaternion operator - (const Quaternion &rhs) const {
+    Quaternion res{a-rhs.a, b-rhs.b, c-rhs.c, d-rhs.d};
+  return res;
+  }
 
-  return r;
-}
-
-Quaternion operator - (const Quaternion& q){
-  Quaternion r;
-  r.q = q.p - this->p;
-  r.q = q.q - this->q;
-  r.q = q.r - this->r;
-  r.q = q.s - this->s;
-
-  return r;
-}
-
-Quaternion operator * (double q){
-  Quaternion r;
-  r.q = q * this->p;
-  r.q = q * this->q;
-  r.q = q * this->r;
-  r.q = q * this->s;
-
-  return r;
-}
+Quaternion operator * (int s) const {
+  Quaternion res{a*s, b*s, c*s, d*s};
+  return res;
+  }
 };
 //------------------------------
 //   DO NOT MODIFY TEST CASES
